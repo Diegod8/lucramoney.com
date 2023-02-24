@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Moneywim</title>
+	<link rel="shortcut icon" href="./src/images/logomw.webp" type="image/x-icon" />
+
+	<link rel="stylesheet" href="style.css" />
+	<script src="./script.js" defer></script>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+	<script>
+		function parseQuery(qstr) {
+			var query = {}
+			var a = (qstr[0] === '?' ? qstr.substr(1) : qstr).split('&')
+			for (var i = 0; i < a.length; i++) {
+				var b = a[i].split('=')
+				query[decodeURIComponent(b[0])] = decodeURIComponent(b[1] || '')
+			}
+			return query
+		}
+
+		function encodeQuery(obj) {
+			var str = []
+			for (var p in obj)
+				if (obj.hasOwnProperty(p)) {
+					str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]))
+				}
+			return str.join('&')
+		}
+
+		function addQueryParameterToDomain(key, value) {
+			var links = document.querySelectorAll('a[href]'),
+				linksLength = links.length,
+				index,
+				queryIndex,
+				queryString,
+				query,
+				url,
+				domain,
+				colonSlashSlash
+
+			for (index = 0; index < linksLength; ++index) {
+				; (url = links[index].href),
+					(queryIndex = url.indexOf('?')),
+					(colonSlashSlash = url.indexOf('://'))
+
+				domain = url.substring(colonSlashSlash + 3)
+				domain = domain.substring(0, domain.indexOf('/'))
+
+				if (queryIndex === -1) {
+					url += '?' + key + '=' + value
+				} else {
+					queryString = url.substring(queryIndex)
+					url = url.substring(0, queryIndex)
+					query = parseQuery(queryString)
+
+					query[key] = value
+
+					url += '?' + encodeQuery(query)
+				}
+
+				links[index].href = url
+			}
+		}
+
+		function addQuery(item) {
+			var arr = item.split('=')
+			if (arr[0] != null && arr[1] != undefined) {
+				addQueryParameterToDomain(arr[0], arr[1])
+			}
+		}
+
+		jQuery(function () {
+			var url = window.location.search.replace('?', '')
+			var itens = url.split('&')
+			itens.forEach(addQuery)
+		})
+	</script>
+
+	<!-- Meta Pixel Code -->
+	<script>
+		!(function (f, b, e, v, n, t, s) {
+			if (f.fbq) return
+			n = f.fbq = function () {
+				n.callMethod
+					? n.callMethod.apply(n, arguments)
+					: n.queue.push(arguments)
+			}
+			if (!f._fbq) f._fbq = n
+			n.push = n
+			n.loaded = !0
+			n.version = '2.0'
+			n.queue = []
+			t = b.createElement(e)
+			t.async = !0
+			t.src = v
+			s = b.getElementsByTagName(e)[0]
+			s.parentNode.insertBefore(t, s)
+		})(
+			window,
+			document,
+			'script',
+			'https://connect.facebook.net/en_US/fbevents.js',
+		)
+		fbq('init', '1183232062303947')
+		fbq('track', 'PageView')
+	</script>
+	<noscript><img height="1" width="1" style="display: none"
+			src="https://www.facebook.com/tr?id=1183232062303947&ev=PageView&noscript=1" /></noscript>
+	<!-- End Meta Pixel Code -->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MEDRVZDN6"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-9MEDRVZDN6');
+	</script>
+</head>
+
+<body>
+	<main>
+		<div class="overlay"></div>
+		<div class="overlay-content">
+			<div class="area_title_money">
+				<h2>
+					COM ESSE APLICATIVO EU GANHO
+					<span class="feat"> R$500 TODOS OS DIAS</span>
+				</h2>
+			</div>
+
+
+			<div class="area_money">
+
+				<div class="area_player_3">
+					<div class="up_container">
+						<div class="player-wrapper">
+							<video class="player_3" width="100%" height="auto" autoplay preload="auto" controls loop
+								muted playsinline>
+								<source src="https://carlosxavier.dev.br/videos/money.mp4" type="video/mp4">
+								</source>
+							</video>
+
+							<script>
+
+								var player_3 = document.querySelector('.player_3');
+								
+								player_3.controls = false;
+								function playClick_money() {
+
+									player_3.volume = 1;
+									player_3.muted = false;
+									player_3.currentTime = 0;
+									player_3.controls = false;
+
+									player_3.play();
+									document.querySelector(".thumb_1_money").style.display = "none";
+
+								}
+
+
+								function pauseClick_money() {
+									player_3.pause();
+									document.querySelector(".thumb_2_money").style.display = "flex";
+								}
+
+								function returnVideo_money() {
+									player_3.play();
+									document.querySelector(".thumb_2_money").style.display = "none";
+								}
+
+							</script>
+
+							<script
+								src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+							<div class="thumb_1_money" onclick="playClick_money()">
+
+								<div class="area_text_play">
+									<h2>Aperte o play!</h2>
+								</div>
+
+								<lottie-player
+									src="https://lottie.host/7b6800a5-f6bf-49c6-85c0-78750531f007/dH5X6yOzmA.json"
+									background="transparent" speed="1" style="width: 200px; height: 200px;" loop
+									autoplay></lottie-player>
+
+							</div>
+
+							<div class="thumb_2_money" onclick="returnVideo_money()">
+
+								<div class="area_text_play">
+									<h2>Aperte o play!</h2>
+								</div>
+								<lottie-player
+									src="https://lottie.host/7b6800a5-f6bf-49c6-85c0-78750531f007/dH5X6yOzmA.json"
+									background="transparent" speed="1" style="width: 200px; height: 200px;" loop
+									autoplay></lottie-player>
+
+							</div>
+
+							<div class="glass" onclick="pauseClick_money()"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!--<div class="video-box">
+					<div
+						id="vid_63d9cca37b79bf0009f62eed"
+						style="position: relative; width: 100%; padding: 50.625% 0 0">
+						<img
+							id="thumb_63d9cca37b79bf0009f62eed"
+							src="https://images.converteai.net/e87281c9-c44d-4b2f-9161-1810e7a4779a/players/63d9cca37b79bf0009f62eed/thumbnail.jpg"
+							style="
+								position: absolute;
+								top: 0;
+								left: 0;
+								width: 100%;
+								height: 100%;
+								object-fit: cover;
+								display: block;
+							" />
+						<div
+							id="backdrop_63d9cca37b79bf0009f62eed"
+							style="
+								position: absolute;
+								top: 0;
+								width: 100%;
+								height: 100%;
+								-webkit-backdrop-filter: blur(5px);
+								backdrop-filter: blur(5px);
+							"></div>
+					</div>
+					<script
+						type="text/javascript"
+						id="scr_63d9cca37b79bf0009f62eed">
+						var s = document.createElement('script')
+						;(s.src =
+							'https://scripts.converteai.net/e87281c9-c44d-4b2f-9161-1810e7a4779a/players/63d9cca37b79bf0009f62eed/player.js'),
+							(s.async = !0),
+							document.head.appendChild(s)
+					</script>
+				</div>-->
+
+			<p>🔊 CERTIFIQUE-SE DE QUE SEU SOM ESTÁ ATIVADO</p>
+			<div class="area_btn">
+				<a href="https://pay.kiwify.com.br/V0g1LEY?afid=PNxhg9es"><button id="purchase" class="hide">
+						Clique Aqui para Acessar o Aplicativo
+					</button>
+				</a>
+			</div>
+
+		</div>
+	</main>
+
+
+	<div class="container_comments">
+
+		<div class="container_comments_int">
+			<div class="title_area_comments">
+				<h2>ESSE SISTEMA MUDOU A VIDA DELES</h2>
+			</div>
+			<div class="area_comments">
+
+				<div class="comments">
+					<div class="title_comment">
+						<h2>
+							Quando eu ví o anuncio desse sistema, eu custei acreditar que fosse verdade e quase que
+							desistir, mas esse teria sido meu maior erro, pois hoje eu ganho em 1 semana o que eu fazia
+							em 6 meses como doméstica.
+						</h2>
+					</div>
+
+
+					<div class="profile">
+
+						<img src="src/images/1.jpg" alt="">
+
+						<div class="area_texts_profile">
+							<div class="name">
+								<h2>Maria Dutra</h2>
+							</div>
+
+							<div class="profession">
+								<p>dona de casa</p>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="comments">
+					<div class="title_comment">
+						<h2>
+							Essa empresa é muito séria, pois eu já comprei vários aplicativos que me garantia que
+							pagava, mas era furada, mas esse sistema paga de verdade minhas recompensas. Ainda bem que
+							dei um voto de confiança.
+						</h2>
+					</div>
+
+
+					<div class="profile">
+
+						<img src="src/images/2.jpg" alt="">
+
+						<div class="area_texts_profile">
+							<div class="name">
+								<h2>Roberto Ferreira</h2>
+							</div>
+
+							<div class="profession">
+								<p>Pedreiro</p>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="comments">
+					<div class="title_comment">
+						<h2>
+							Que maravilha é esse sistema. Eu ganho recompensas todos os dias só pra apertar um único
+							botão. Com esse app eu larguei minha profissão de vendas e agora trabalho em casa, pois pra
+							mim é muito melhor.
+						</h2>
+					</div>
+
+
+					<div class="profile">
+
+						<img src="src/images/3.jpg" alt="">
+
+						<div class="area_texts_profile">
+							<div class="name">
+								<h2>Simone Alves</h2>
+							</div>
+
+							<div class="profession">
+								<p>Vendedora</p>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="comments">
+					<div class="title_comment">
+						<h2>
+							Vida de caminhoneiro não é nada fácil, e eu já estava louco querendo algo melhor pra minha
+							vida, ai eu descobrir esse sistema, e pra mim, ele é perfeito, pois agora eu não preciso
+							arriscar mais minha vida em estradas.
+						</h2>
+					</div>
+
+
+					<div class="profile">
+
+						<img src="src/images/4.jpg" alt="">
+
+						<div class="area_texts_profile">
+							<div class="name">
+								<h2>Edson Alves</h2>
+							</div>
+
+							<div class="profession">
+								<p>Caminhoneiro</p>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="comments">
+					<div class="title_comment">
+						<h2>
+							Trabalhei como cozinheira por 25 anos da minha vida, e eu nunca imaginei que um dia faria
+							outra coisa pra manter meu sustento, mas com esse sistema, eu ganho mais que no meu antigo
+							emprego.
+						</h2>
+					</div>
+
+
+					<div class="profile">
+
+						<img src="src/images/5.jpg" alt="">
+
+						<div class="area_texts_profile">
+							<div class="name">
+								<h2>Edileuza Silva</h2>
+							</div>
+
+							<div class="profession">
+								<p>Cozinheira</p>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="comments">
+					<div class="title_comment">
+						<h2>
+							Parece que estou vivendo um sonho, trabalhar em casa, sempre limpinho, sem correr atrás do
+							lixo, pra mim tá bão demais ganhar meu dinheiro dentro de casa com esse sistema, recomendo
+							muito.
+						</h2>
+					</div>
+
+
+					<div class="profile">
+
+						<img src="src/images/6.jpg" alt="">
+
+						<div class="area_texts_profile">
+							<div class="name">
+								<h2>Osmildo costa</h2>
+							</div>
+
+							<div class="profession">
+								<p>Coletor de lixo</p>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+		</div>
+
+
+	</div>
+
+
+	<section id="partners">
+		<h3>Nossos Parceiros</h3>
+		<img src="./src/images/bancos-parceiros.png" alt="Bancos Parceiros" />
+		<img src="./src/images/maiores-bancos-mundiais-_1_.webp" alt="Bancos Parceiros" />
+	</section>
+
+	<footer>
+		<p>© Copyright. Todos os direitos reservados</p>
+		<p>
+			Não tem nenhuma relação institucional com o Facebook, Instagram,
+			WhatsApp ou Facebook Messenger. Ao abordar questões financeiras, de
+			qualquer um dos nossos produtos, sites, vídeos, palestras, programas ou
+			outros conteúdos, fazemos todos os esforços para garantir que estes
+			representem fielmente nossos cursos e sua capacidade de melhorar sua
+			vida.
+		</p>
+
+		<p class="links">Termos de uso | Política de Privacidade</p>
+	</footer>
+</body>
+
+</html>
